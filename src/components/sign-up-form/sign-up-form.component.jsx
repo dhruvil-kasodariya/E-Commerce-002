@@ -7,7 +7,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { UserContext } from "../../context/user.context";
-import "./sign-up-form.style.scss";
+import { SignUpContainer } from "./sign-up-form.style.jsx";
 const initialUserData = {
   displayName: "",
   email: "",
@@ -57,7 +57,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-cotainer">
+    <SignUpContainer>
       <h2>Create new account</h2>
       <span>Sign up with email and password</span>
       <form onSubmit={handleSubmit}>
@@ -95,7 +95,7 @@ const SignUpForm = () => {
         />
         <Button children="SIGN-UP" type="submit" />
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 

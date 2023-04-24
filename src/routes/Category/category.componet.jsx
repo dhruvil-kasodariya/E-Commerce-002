@@ -7,7 +7,7 @@ import ProductCard from "../../components/product-card/product-card.component";
 
 import { CategoriesContext } from "../../context/categories.context";
 
-import "./category.style.scss";
+import { CategoryContainer } from "./category.style";
 
 const Category = () => {
   const { category } = useParams();
@@ -20,12 +20,12 @@ const Category = () => {
   }, [categoriesMap, category]);
 
   return (
-    <div className="category-container">
+    <CategoryContainer>
       {product &&
         product.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-    </div>
+    </CategoryContainer>
   );
 };
 
