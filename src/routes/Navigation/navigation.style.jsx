@@ -7,6 +7,12 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+
+  h1 {
+    justify-content: center;
+    align-items: center;
+    font-family: "Sedgwick Ave Display";
+  }
 `;
 
 export const LogoContainer = styled(Link)`

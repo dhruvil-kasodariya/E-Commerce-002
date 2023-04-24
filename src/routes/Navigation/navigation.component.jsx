@@ -27,6 +27,7 @@ const Navigation = () => {
         <LogoContainer to="/">
           <CrownLogo className="logo" />
         </LogoContainer>
+        <h1>CLOTH KING</h1>
         <NavLinkContainer>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
