@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
@@ -20,12 +20,15 @@ const Category = () => {
   }, [categoriesMap, category]);
 
   return (
-    <CategoryContainer>
-      {product &&
-        product.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-    </CategoryContainer>
+    <Fragment>
+      <h1>{category.toUpperCase()}</h1>
+      <CategoryContainer>
+        {product &&
+          product.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </CategoryContainer>
+    </Fragment>
   );
 };
 
