@@ -43,7 +43,7 @@ const SignUpForm = () => {
           break;
 
         case "auth/user-not-found":
-          alert("incorrect email");
+          alert("incorrect e-mail");
           break;
 
         default:
