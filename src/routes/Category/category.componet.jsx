@@ -15,7 +15,6 @@ const Category = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [product, setProduct] = useState(categoriesMap[category]);
-  console.log(isLoading);
   useEffect(() => {
     setProduct(categoriesMap[category]);
   }, [categoriesMap, category]);
