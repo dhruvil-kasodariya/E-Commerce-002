@@ -15,7 +15,7 @@ import {
 
 const PaymentForm = () => {
   const stripe = useStripe();
-  const element = useElements();
+  const elements = useElements();
 
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
@@ -24,7 +24,7 @@ const PaymentForm = () => {
   const paymentHandler = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !element) {
+    if (!stripe || !elements) {
       return;
     }
     setIsProcessingPayment(true);
@@ -44,15 +44,17 @@ const PaymentForm = () => {
 
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
-        card: element.getElement(CardElement),
+        card: elements.getElement(CardElement),
         billing_details: {
           name: currentUser ? currentUser.displayName : "Guest",
         },
+        //description: "test description",
       },
     });
     setIsProcessingPayment(false);
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert(paymentResult.error.message);
+      console.log(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment success");
