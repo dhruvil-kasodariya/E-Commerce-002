@@ -6,12 +6,26 @@ import {
   fetchCategoriceSuccess,
   fetchCategoriceFailed,
 } from "./category.action";
+import { fetchData } from "../../api/api";
 
 import { CATEGORIES_ACTION_TYPES } from "./category.types";
 
 export function* fetchCategoriceAsync() {
   try {
-    const categoriesArray = yield call(getCategoriesAndDocuments, "categories");
+    const categoriesArrayWithUsd = yield call(
+      getCategoriesAndDocuments,
+      "categories"
+    );
+    const urlExchange = "https://api.exchangerate.host/latest?base=USD";
+    const usdRate = yield fetchData(urlExchange).then((res) => res.rates.INR);
+    yield console.log(usdRate);
+    const categoriesArray = yield categoriesArrayWithUsd.map((category) => ({
+      ...category,
+      items: category.items.map((item) => ({
+        ...item,
+        price: Math.floor(item.price * usdRate),
+      })),
+    }));
     yield put(fetchCategoriceSuccess(categoriesArray));
   } catch (error) {
     yield put(fetchCategoriceFailed(error));

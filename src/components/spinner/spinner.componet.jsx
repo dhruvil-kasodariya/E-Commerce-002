@@ -1,6 +1,18 @@
-import { SpinnerContainer, SpinnerOverlay } from "./spinner.style";
+import {
+  SpinnerContainer,
+  SpinnerOverlay,
+  Loader,
+  LoaderInner,
+  LoaderWrapper,
+} from "./spinner.style";
 const Spinner = () => {
-  console.log(true);
+  // return (
+  //   <LoaderWrapper>
+  //     <Loader>
+  //       <LoaderInner />
+  //     </Loader>
+  //   </LoaderWrapper>
+  // );
   return (
     <SpinnerOverlay>
       <SpinnerContainer />

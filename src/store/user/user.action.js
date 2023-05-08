@@ -1,5 +1,7 @@
 import { createAction } from "../../utils/reducer/reducer.utils";
 import { USER_ACTION_TYPES } from "./user.type";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const setCurrentUser = (user) =>
   createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user);
@@ -16,8 +18,10 @@ export const emailSignInStart = (email, password) =>
 export const signInSuccess = (user) =>
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user);
 
-export const signInFailed = (error) =>
-  createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
+export const signInFailed = (error) => {
+  toast(error);
+  return createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
+};
 
 export const signUpStart = (email, password, displayName) =>
   createAction(USER_ACTION_TYPES.SIGN_UP_START, {
