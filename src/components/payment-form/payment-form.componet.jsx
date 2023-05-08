@@ -1,5 +1,7 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
@@ -40,31 +42,27 @@ const PaymentForm = () => {
       paymentIntent: { client_secret },
     } = response;
 
-    console.log(client_secret);
-
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
           name: currentUser ? currentUser.displayName : "Guest",
         },
-        //description: "test description",
       },
     });
     setIsProcessingPayment(false);
     if (paymentResult.error) {
-      alert(paymentResult.error.message);
-      console.log(paymentResult.error);
+      toast.error(paymentResult.error.message, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Payment success");
+        toast.success("Payment success", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
     }
   };
-
-  // const clientSecret =response.paymentIntent.client_secret;
-
-  // console.log(clientSecret);
 
   return (
     <PaymentFormContainer>
@@ -78,6 +76,7 @@ const PaymentForm = () => {
           Pay now
         </PaymentButton>
       </FormContainer>
+      <ToastContainer />
     </PaymentFormContainer>
   );
 };

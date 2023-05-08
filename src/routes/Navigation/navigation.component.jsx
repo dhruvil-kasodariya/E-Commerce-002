@@ -14,6 +14,8 @@ import {
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectCartOpen } from "../../store/cart/cart.selector";
 import { signOutStart } from "../../store/user/user.action";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navigation = () => {
   const isCartOpen = useSelector(selectCartOpen);
@@ -39,6 +41,7 @@ const Navigation = () => {
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
+          <ToastContainer />
           <CartIcon />
         </NavLinkContainer>
         {isCartOpen && <CartDropdown />}

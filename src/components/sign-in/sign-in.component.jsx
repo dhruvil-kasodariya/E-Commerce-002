@@ -8,6 +8,7 @@ import {
   googleSignInStart,
   emailSignInStart,
 } from "../../store/user/user.action";
+
 const initialUserData = {
   email: "",
   password: "",
@@ -50,15 +51,15 @@ const SignUpForm = () => {
           break;
 
         default:
-          console.log(error);
+          alert(error);
       }
     }
   };
 
   return (
     <SignUpContainer>
-      <h2>Create new account</h2>
-      <span>Sign up with email and password</span>
+      <span>Sign in with email and password</span>
+
       <form onSubmit={handleSubmit}>
         <FormInput
           label="E-mail"
