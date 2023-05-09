@@ -3,6 +3,7 @@ export const CATEGORIES_INITIAL_STATE = {
   categories: [],
   isLoading: false,
   error: null,
+  searchString: null,
 };
 
 export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action) => {
@@ -15,6 +16,8 @@ export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action) => {
       return { ...state, error: payload, isLoading: false };
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORICE_SUCCESS:
       return { ...state, categories: payload, isLoading: false };
+    case CATEGORIES_ACTION_TYPES.SEARCH_STRING_SUCCESS:
+      return { ...state, searchString: payload };
     default:
       return state;
   }

@@ -16,7 +16,7 @@ import { selectCartOpen } from "../../store/cart/cart.selector";
 import { signOutStart } from "../../store/user/user.action";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import SearchItem from "../../components/search-item/searchItem.componet";
 const Navigation = () => {
   const isCartOpen = useSelector(selectCartOpen);
   const currentUser = useSelector(selectCurrentUser);
@@ -33,6 +33,7 @@ const Navigation = () => {
         </LogoContainer>
         <h1>CLOTH KING</h1>
         <NavLinkContainer>
+          <SearchItem />
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={handleSignOut}>

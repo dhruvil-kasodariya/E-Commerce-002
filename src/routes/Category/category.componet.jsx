@@ -14,6 +14,7 @@ const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
+
   const [product, setProduct] = useState(categoriesMap[category]);
   useEffect(() => {
     setProduct(categoriesMap[category]);
@@ -26,10 +27,11 @@ const Category = () => {
         <Spinner />
       ) : (
         <CategoryContainer>
-          {product &&
-            product.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          {product.leanth
+            ? product.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            : "No Match Found"}
         </CategoryContainer>
       )}
     </Fragment>

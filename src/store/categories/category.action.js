@@ -17,6 +17,9 @@ export const fetchCategoriceSuccess = (categoriesArray) =>
 export const fetchCategoriceFailed = (error) =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORICE_FAILED, error);
 
+export const searchStringAction = (searchString) =>
+  createAction(CATEGORIES_ACTION_TYPES.SEARCH_STRING_SUCCESS, searchString);
+
 // export const fetchCategoriceAsync = () => async (dispatch) => {
 //   dispatch(fetchCategoriceStart());
 //   try {

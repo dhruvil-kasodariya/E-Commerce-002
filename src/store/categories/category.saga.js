@@ -18,7 +18,6 @@ export function* fetchCategoriceAsync() {
     );
     const urlExchange = "https://api.exchangerate.host/latest?base=USD";
     const usdRate = yield fetchData(urlExchange).then((res) => res.rates.INR);
-    yield console.log(usdRate);
     const categoriesArray = yield categoriesArrayWithUsd.map((category) => ({
       ...category,
       items: category.items.map((item) => ({
@@ -26,7 +25,8 @@ export function* fetchCategoriceAsync() {
         price: Math.floor(item.price * usdRate),
       })),
     }));
-    yield put(fetchCategoriceSuccess(categoriesArray));
+    yield console.log(categoriesArray);
+    yield put(fetchCategoriceSuccess(categoriesArray, 1));
   } catch (error) {
     yield put(fetchCategoriceFailed(error));
   }
