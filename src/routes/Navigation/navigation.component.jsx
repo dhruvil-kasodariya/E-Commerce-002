@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
@@ -21,6 +21,7 @@ const Navigation = () => {
   const isCartOpen = useSelector(selectCartOpen);
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleSignOut = () => {
     dispatch(signOutStart());
@@ -33,7 +34,7 @@ const Navigation = () => {
         </LogoContainer>
         <h1>CLOTH KING</h1>
         <NavLinkContainer>
-          <SearchItem />
+          {location.pathname !== "/" && <SearchItem />}
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={handleSignOut}>

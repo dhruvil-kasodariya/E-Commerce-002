@@ -19,13 +19,14 @@ export const SearchBox = styled.div`
     flex: 1;
     border: none;
     margin-left: 8px;
-    margin-right: 25px;
+    margin-right: 8px;
     font-size: 16px;
     width: calc(100% - 24px);
     box-sizing: border-box;
+    font-family: "Sedgwick Ave Display", cursive;
   }
 
-  button {
+  /* button {
     background: none;
     border: none;
     cursor: pointer;
@@ -44,5 +45,5 @@ export const SearchBox = styled.div`
     &:hover svg {
       fill: #0069d9;
     }
-  }
+  } */
 `;

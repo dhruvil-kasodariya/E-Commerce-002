@@ -1,4 +1,4 @@
-import { SearchBox, SearchIcon } from "./searchBox.style";
+import { SearchBox } from "./searchBox.style";
 
 const SearchBoxComponent = ({ searchChangeHandle }) => {
   return (
@@ -8,9 +8,6 @@ const SearchBoxComponent = ({ searchChangeHandle }) => {
         placeholder="Search..."
         onChange={searchChangeHandle}
       />
-      <button>
-        <SearchIcon />
-      </button>
     </SearchBox>
   );
 };

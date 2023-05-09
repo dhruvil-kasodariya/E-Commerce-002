@@ -19,6 +19,7 @@ const Category = () => {
   useEffect(() => {
     setProduct(categoriesMap[category]);
   }, [categoriesMap, category]);
+  console.log(product, categoriesMap);
 
   return (
     <Fragment>
@@ -27,7 +28,7 @@ const Category = () => {
         <Spinner />
       ) : (
         <CategoryContainer>
-          {product.leanth
+          {product
             ? product.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))
