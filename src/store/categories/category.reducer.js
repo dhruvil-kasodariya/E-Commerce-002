@@ -4,6 +4,7 @@ export const CATEGORIES_INITIAL_STATE = {
   isLoading: false,
   error: null,
   searchString: null,
+  priceRange: null,
 };
 
 export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action) => {
@@ -18,6 +19,8 @@ export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action) => {
       return { ...state, categories: payload, isLoading: false };
     case CATEGORIES_ACTION_TYPES.SEARCH_STRING_SUCCESS:
       return { ...state, searchString: payload };
+    case CATEGORIES_ACTION_TYPES.SELECTED_PRICE_RANGE:
+      return { ...state, priceRange: payload };
     default:
       return state;
   }

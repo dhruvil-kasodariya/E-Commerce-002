@@ -16,7 +16,7 @@ const SearchItem = () => {
   const searchItemName = searchItemString
     .split(" ")
     .map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     })
     .join(" ");
 

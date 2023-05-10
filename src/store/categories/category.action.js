@@ -20,6 +20,9 @@ export const fetchCategoriceFailed = (error) =>
 export const searchStringAction = (searchString) =>
   createAction(CATEGORIES_ACTION_TYPES.SEARCH_STRING_SUCCESS, searchString);
 
+export const selectedPriceRangeAction = (priceRange) =>
+  createAction(CATEGORIES_ACTION_TYPES.SELECTED_PRICE_RANGE, priceRange);
+
 // export const fetchCategoriceAsync = () => async (dispatch) => {
 //   dispatch(fetchCategoriceStart());
 //   try {

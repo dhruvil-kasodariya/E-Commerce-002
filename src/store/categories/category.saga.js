@@ -25,8 +25,7 @@ export function* fetchCategoriceAsync() {
         price: Math.floor(item.price * usdRate),
       })),
     }));
-    yield console.log(categoriesArray);
-    yield put(fetchCategoriceSuccess(categoriesArray, 1));
+    yield put(fetchCategoriceSuccess(categoriesArray));
   } catch (error) {
     yield put(fetchCategoriceFailed(error));
   }

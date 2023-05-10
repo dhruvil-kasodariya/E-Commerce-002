@@ -17,6 +17,8 @@ import { signOutStart } from "../../store/user/user.action";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SearchItem from "../../components/search-item/searchItem.componet";
+import PriceRangeSelect from "../../components/price-range-select/priceRangeSelect.componet";
+
 const Navigation = () => {
   const isCartOpen = useSelector(selectCartOpen);
   const currentUser = useSelector(selectCurrentUser);
@@ -34,6 +36,7 @@ const Navigation = () => {
         </LogoContainer>
         <h1>CLOTH KING</h1>
         <NavLinkContainer>
+          {location.pathname !== "/" && <PriceRangeSelect />}
           {location.pathname !== "/" && <SearchItem />}
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (

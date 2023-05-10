@@ -5,7 +5,7 @@ import {
 } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-//import logger from "redux-logger";
+import logger from "redux-logger";
 //import thunk from "redux-thunk";
 import createSafaMiddleware from "redux-saga";
 
@@ -21,7 +21,7 @@ const persistConfig = {
 const sagaMiddleware = createSafaMiddleware();
 
 const middleware = [
-  // process.env.NODE_ENV !== "production" && logger,
+  process.env.NODE_ENV !== "production" && logger,
 
   sagaMiddleware,
   //thunk,

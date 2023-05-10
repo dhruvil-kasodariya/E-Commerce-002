@@ -9,7 +9,6 @@ import ProductCart from "../product-card/product-card.component";
 
 const CategoryPreview = ({ title, products }) => {
   const navigate = useNavigate();
-  console.log(products.length);
   const onHandleCategoryTitle = () => navigate(title);
   return (
     <CategoryPreviewContainer>
