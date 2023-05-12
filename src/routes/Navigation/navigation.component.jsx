@@ -36,8 +36,12 @@ const Navigation = () => {
         </LogoContainer>
         <h1>CLOTH KING</h1>
         <NavLinkContainer>
-          {location.pathname !== "/" && <PriceRangeSelect />}
-          {location.pathname !== "/" && <SearchItem />}
+          {location.pathname !== "/" &&
+            location.pathname !== "/auth" &&
+            location.pathname !== "/checkout" && <PriceRangeSelect />}
+          {location.pathname !== "/" &&
+            location.pathname !== "/auth" &&
+            location.pathname !== "/checkout" && <SearchItem />}
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={handleSignOut}>

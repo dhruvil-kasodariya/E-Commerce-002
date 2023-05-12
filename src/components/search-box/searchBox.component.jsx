@@ -4,7 +4,7 @@ const SearchBoxComponent = ({ searchChangeHandle }) => {
   return (
     <SearchBox>
       <input
-        type="text"
+        type="search"
         placeholder="Search..."
         onChange={searchChangeHandle}
       />

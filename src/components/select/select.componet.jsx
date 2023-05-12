@@ -21,7 +21,7 @@ const customStyles = {
     backgroundColor: state.isFocused ? "#f2f2f2" : "transparent",
     border: state.isFocused ? "2px solid #ff4d4d" : "2px solid #bfbfbf",
     boxShadow: state.isFocused ? "none" : "none",
-    borderRadius: "10px",
+    borderRadius: "25px",
     ":hover": {
       border: "2px solid #ff4d4d",
     },
@@ -40,6 +40,7 @@ const MySelect = ({ selectedOption, handleChange, options, placeholder }) => {
       options={options}
       styles={customStyles}
       placeholder={placeholder}
+      isClearable={true}
     />
   );
 };

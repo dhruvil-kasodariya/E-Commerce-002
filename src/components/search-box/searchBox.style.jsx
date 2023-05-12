@@ -15,7 +15,7 @@ export const SearchBox = styled.div`
   height: 32px;
   position: relative;
 
-  input[type="text"] {
+  input[type="search"] {
     flex: 1;
     border: none;
     margin-left: 8px;
