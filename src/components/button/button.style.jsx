@@ -12,7 +12,7 @@ export const BaseButton = styled.button`
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: "Sedgwick Ave Display", cursive, "Open Sans Condensed";
+  /* font-family: "Sedgwick Ave Display", cursive, "Open Sans Condensed"; */
   font-weight: bolder;
   border: none;
   cursor: pointer;

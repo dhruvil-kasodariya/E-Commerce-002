@@ -11,7 +11,7 @@ export const NavigationContainer = styled.div`
   h1 {
     justify-content: center;
     align-items: center;
-    font-family: "Sedgwick Ave Display";
+    /* font-family: "Sedgwick Ave Display"; */
   }
 `;
 

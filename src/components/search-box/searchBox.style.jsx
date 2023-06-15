@@ -23,7 +23,7 @@ export const SearchBox = styled.div`
     font-size: 16px;
     width: calc(100% - 24px);
     box-sizing: border-box;
-    font-family: "Sedgwick Ave Display", cursive;
+    /* font-family: "Sedgwick Ave Display", cursive; */
   }
 
   /* button {
