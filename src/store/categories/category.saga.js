@@ -6,7 +6,7 @@ import {
   fetchCategoriceSuccess,
   fetchCategoriceFailed,
 } from "./category.action";
-import { fetchData } from "../../api/api";
+import { fetchData,fetchDataWithOption } from "../../api/api";
 
 import { CATEGORIES_ACTION_TYPES } from "./category.types";
 
@@ -16,8 +16,17 @@ export function* fetchCategoriceAsync() {
       getCategoriesAndDocuments,
       "categories"
     );
-    const urlExchange = "https://api.exchangerate.host/latest?base=USD";
-    const usdRate = yield fetchData(urlExchange).then((res) => res.rates.INR);
+    // const urlExchange = "https://api.exchangerate.host/latest?base=USD";
+    // const usdRate = yield fetchData(urlExchange).then((res) => res.rates.INR);
+    const urlExchange = 'https://currency-exchange.p.rapidapi.com/exchange?from=USD&to=INR&q=1.0';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '6b05ecea36msh09c96e711c866dep1b42b0jsn14d8613e7884',
+		'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+	}
+};
+       const usdRate = yield fetchDataWithOption(urlExchange,options).then((res) => res.data);
     const categoriesArray = yield categoriesArrayWithUsd.map((category) => ({
       ...category,
       items: category.items.map((item) => ({
