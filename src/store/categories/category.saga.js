@@ -19,19 +19,19 @@ export function* fetchCategoriceAsync() {
       "categories"
     );
 
- const exchangeApiOption = {
-      method: "GET",
-      url: "https://currency-exchange.p.rapidapi.com/exchange",
-      params: {
-        from: "USD",
-        to: "INR",
-        q: "1.0",
-      },
-      headers: {
-        "X-RapidAPI-Key": "6b05ecea36msh09c96e711c866dep1b42b0jsn14d8613e7884",
-        "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
-      },
-    };
+
+    const exchangeApiOption ={
+    method: 'GET',
+    url: 'https://currency-exchange.p.rapidapi.com/exchange',
+    params: {
+      from: 'USD',
+      to: 'INR',
+      q: '1.0'
+    },
+    headers: {
+      'X-RapidAPI-Key': '851699852bmsha70d9d8784e0fcbp1de377jsn9b633b7242db',
+      'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+    }}
     const usdRate = yield axios
       .request(exchangeApiOption)
       .then((res) => res.data);
