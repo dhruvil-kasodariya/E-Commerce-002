@@ -20,13 +20,14 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDo7JliOHB_-GIk1JTtUQc1dfnGp1NywWs",
-  authDomain: "e-commerce-0-50bbb.firebaseapp.com",
-  projectId: "e-commerce-0-50bbb",
-  storageBucket: "e-commerce-0-50bbb.appspot.com",
-  messagingSenderId: "579712339374",
-  appId: "1:579712339374:web:9fd76fbde1287e7f240c3f",
+  apiKey: "AIzaSyDyxV242MuBN32FWcXZSaMidvBP58GksCI",
+  authDomain: "e-commerce-cbde1.firebaseapp.com",
+  projectId: "e-commerce-cbde1",
+  storageBucket: "e-commerce-cbde1.appspot.com",
+  messagingSenderId: "228301015249",
+  appId: "1:228301015249:web:74271ee0e53d60699f9df0"
 };
+
 
 const firebaseApp = initializeApp(firebaseConfig);
 
@@ -46,6 +47,7 @@ export const db = getFirestore();
 //insert data in fire base
 
 export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
+  console.log(collectionKey,objectToAdd)
   const collectionRef = collection(db, collectionKey); //create collection database
   const batch = writeBatch(db);
 

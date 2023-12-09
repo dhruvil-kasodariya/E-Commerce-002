@@ -20,6 +20,8 @@ export function* fetchCategoriceAsync() {
     );
 
 
+    console.log(categoriesArrayWithUsd)
+
     const exchangeApiOption ={
     method: 'GET',
     url: 'https://currency-exchange.p.rapidapi.com/exchange',
